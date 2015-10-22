@@ -1,0 +1,5 @@
+alias ll='ls -la'
+alias es='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
+alias pg='postgres -D /usr/local/var/postgres'
+alias mysql='mysql.server start'
+alias redis='redis-server /usr/local/etc/redis.conf'

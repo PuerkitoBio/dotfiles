@@ -1,0 +1,24 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Martin Angers
+	email = martin.n.angers@gmail.com
+[alias]
+	co = checkout
+	st = status
+	ci = commit -m
+	br = branch
+	ad = !git add -A && git status
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	pom = push origin master
+	po = push origin
+	dt = difftool
+	unmerged = "!f() { git log $1 ^$(git rev-parse --abbrev-ref HEAD); }; f"
+
+[color]
+	ui = true
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = true
