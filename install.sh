@@ -7,16 +7,17 @@
 # http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
 ############################
 
-if [ $1 = "-h" ]; then
+help=${1:-x}
+if [ $help = "-h" ]; then
 	echo "usage: ./install.sh [TARGETDIR] [BACKUPDIR]"
 	exit 0
 fi
 
 os=`uname | tr '[:upper:]' '[:lower:]'`
 
-srcdir=./${os}
+srcdir=`pwd`/${os}
 targetdir=${1:-$HOME}
-olddir=${2:-$HOME/dotfiles_old}
+olddir=${2:-`mktemp -d`}
 
 # remove trailing slash for targetdir and olddir
 targetdir=${targetdir%/}
