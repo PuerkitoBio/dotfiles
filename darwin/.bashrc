@@ -24,7 +24,7 @@ if [ -f $GITAWAREPROMPT/main.sh ]; then
     source $GITAWAREPROMPT/main.sh
 fi
 export PROMPT_DIRTRIM=1
-export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \\$\[$(tput sgr0)\] "
+export PS1="\u@\h \[$txtpur\]\w\[$txtrst\] \[$bakwht\]\[$txtblk\]\$git_branch\$git_dirty\[$txtrst\] \\$\[$(tput sgr0)\] "
 
 # use vi bindings
 set -o vi
