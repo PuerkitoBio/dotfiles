@@ -1,5 +1,6 @@
 export PATH=$PATH:$HOME/bin:$HOME/src/go/bin
 export GOPATH=$HOME
+export N_PREFIX=$HOME
 export CLICOLOR=1
 export EDITOR=vim
 export CDPATH=.:$GOPATH/src/github.com:$GOPATH/src/bitbucket.org:$GOPATH/src/golang.org/x
