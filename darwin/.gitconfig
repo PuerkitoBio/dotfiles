@@ -13,6 +13,7 @@
 	po = push origin
 	dt = difftool
 	unmerged = "!f() { git log $1 ^$(git rev-parse --abbrev-ref HEAD); }; f"
+    rmmerged = "!git branch --merged | grep -v '\\*' | grep -v master | grep -v staging | xargs -n 1 git branch -d"
 
 [color]
 	ui = true
