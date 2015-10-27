@@ -1,0 +1,1 @@
+alias es='sudo elasticsearch --config=/etc/elasticsearch/elasticsearch.yml'
