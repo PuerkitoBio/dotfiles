@@ -28,3 +28,8 @@ export PS1="\u@\h \[$txtpur\]\w\[$txtrst\] \[$bakwht\]\[$txtblk\]\$git_branch\$g
 
 # use vi bindings
 set -o vi
+
+# enable direnv
+# https://github.com/direnv/direnv
+eval "$(direnv hook bash)"
+
