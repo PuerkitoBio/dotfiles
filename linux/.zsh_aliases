@@ -1,1 +1,5 @@
+# start databases
 alias es='sudo elasticsearch --config=/etc/elasticsearch/elasticsearch.yml'
+
+# stop databases
+alias kes='kill -TERM $(pgrep -f elasticsearch)'
