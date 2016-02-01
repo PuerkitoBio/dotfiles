@@ -2,3 +2,5 @@
 "\e[A":history-search-backward
 # arrow down
 "\e[B":history-search-forward
+# show mode, see http://stackoverflow.com/questions/1039713/different-bash-prompt-for-different-vi-editing-mode
+set show-mode-in-prompt on
