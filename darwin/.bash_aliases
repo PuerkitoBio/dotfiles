@@ -14,3 +14,8 @@ alias kpg='pkill -TERM postgres'
 alias kmysql='mysql.server stop'
 alias kes='kill -TERM $(pgrep -f elasticsearch)'
 alias kmongodb='pkill mongod'
+
+# auto-cd to last directory with just "-"
+# see http://askubuntu.com/questions/146031/bash-alias-alias-name-should-be-a-simple-dash-not-working
+alias -- -='cd -'
+
