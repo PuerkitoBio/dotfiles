@@ -19,10 +19,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
 fi
 
-### enable direnv
-### https://github.com/direnv/direnv
-eval "$(direnv hook bash)"
-
 ### configure history
 ### see http://mrzool.cc/writing/sensible-bash/
 shopt -s histappend                          # append to the history file, don't overwrite it
@@ -48,4 +44,9 @@ if [ -f $GITAWAREPROMPT/main.sh ]; then
 fi
 PROMPT_DIRTRIM=1
 PS1="\u@\h \[$txtpur\]\w\[$txtrst\] \[$bakwht\]\[$txtblk\]\$git_branch\$git_dirty\[$txtrst\] \\$\[$(tput sgr0)\] "
+
+### enable direnv
+### https://github.com/direnv/direnv
+### must be after history and prompt-manipulation config.
+eval "$(direnv hook bash)"
 
