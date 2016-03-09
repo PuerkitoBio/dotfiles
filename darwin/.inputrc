@@ -1,8 +1,3 @@
-# arrow up
-"\e[A":history-search-backward
-# arrow down
-"\e[B":history-search-forward
-
 # use vi key bindings, see
 # http://blog.sanctum.geek.nz/vi-mode-in-bash/
 set editing-mode vi
@@ -16,4 +11,9 @@ set show-mode-in-prompt on
 set completion-ignore-case on
 set completion-map-case on
 set show-all-if-ambiguous on
+
+# arrow up
+"\e[A":history-search-backward
+# arrow down
+"\e[B":history-search-forward
 
