@@ -1,11 +1,11 @@
 ### define environment variables
-PATH=$PATH:$HOME/bin:$HOME/src/go/bin
+PATH=$PATH:$HOME/bin:$HOME/src/go/bin:$HOME/src/go_appengine
 export GOPATH=$HOME
 export N_PREFIX=$HOME
 export CLICOLOR=1
 export EDITOR=vim
 export GITAWAREPROMPT=$GOPATH/src/github.com/jimeh/git-aware-prompt
-CDPATH=.:$GOPATH/src/github.com:$GOPATH/src/bitbucket.org:$GOPATH/src/golang.org/x
+CDPATH=.:$GOPATH/src/github.com:$GOPATH/src/bitbucket.org:$GOPATH/src/golang.org/x:$GOPATH/src/gitlab.com
 
 ### load aliases if any
 if [ -f ~/.bash_aliases ]; then
@@ -42,11 +42,10 @@ shopt -s cdable_vars
 if [ -f $GITAWAREPROMPT/main.sh ]; then
     source $GITAWAREPROMPT/main.sh
 fi
-PROMPT_DIRTRIM=1
+PROMPT_DIRTRIM=3
 PS1="\u@\h \[$txtpur\]\w\[$txtrst\] \[$bakwht\]\[$txtblk\]\$git_branch\$git_dirty\[$txtrst\] \\$\[$(tput sgr0)\] "
 
 ### enable direnv
 ### https://github.com/direnv/direnv
 ### must be after history and prompt-manipulation config.
 eval "$(direnv hook bash)"
-

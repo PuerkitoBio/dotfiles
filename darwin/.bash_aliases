@@ -19,3 +19,5 @@ alias kmongodb='pkill mongod'
 # see http://askubuntu.com/questions/146031/bash-alias-alias-name-should-be-a-simple-dash-not-working
 alias -- -='cd -'
 
+# run npm scripts without the noisy npm logs on non-zero exit codes
+alias npmrun='npm run --silent $@'
