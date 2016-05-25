@@ -21,3 +21,15 @@ alias -- -='cd -'
 
 # run npm scripts without the noisy npm logs on non-zero exit codes
 alias npmrun='npm run --silent $@'
+
+# switch account for app engine
+function appEngineSwitchAccount() {
+    if [[ ! -f "${HOME}/.appcfg_oauth2_tokens.$1" ]]; then
+        echo "no such app engine account"
+        return 1
+    fi
+
+    cp "${HOME}/.appcfg_oauth2_tokens.$1" "${HOME}/.appcfg_oauth2_tokens"
+}
+alias aeuse='appEngineSwitchAccount $1'
+
