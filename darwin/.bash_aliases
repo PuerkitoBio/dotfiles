@@ -33,3 +33,10 @@ function appEngineSwitchAccount() {
 }
 alias aeuse='appEngineSwitchAccount $1'
 
+# list external dependencies of a Go package
+# usage: goextdep P, goextdep ./..., etc.
+function listGoExternalDeps() {
+    go list -f "{{.Deps}}" $1 | tr "[" " " | tr "]" " " | xargs go list -f "{{if not .Standard}}{{.ImportPath}}{{end}}"  | sort
+}
+alias goextdep='listGoExternalDeps $1'
+

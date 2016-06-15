@@ -1,5 +1,5 @@
 ### define environment variables
-PATH=$PATH:$HOME/bin:$HOME/src/go/bin:$HOME/src/go_appengine
+PATH=$PATH:$HOME/bin:$HOME/src/go/bin:$HOME/src/go_appengine:$HOME/src/github.com/richo/babashka/bin
 export GOPATH=$HOME
 export N_PREFIX=$HOME
 export CLICOLOR=1
