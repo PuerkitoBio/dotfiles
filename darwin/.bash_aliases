@@ -38,5 +38,5 @@ alias aeuse='appEngineSwitchAccount $1'
 function listGoExternalDeps() {
     go list -f "{{.Deps}}" $1 | tr "[" " " | tr "]" " " | xargs go list -f "{{if not .Standard}}{{.ImportPath}}{{end}}"  | sort
 }
-alias goextdep='listGoExternalDeps $1'
+alias goextdep='listGoExternalDeps'
 
