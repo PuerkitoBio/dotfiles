@@ -20,10 +20,15 @@ alias kmongodb='pkill mongod'
 alias -- -='cd -'
 
 # run npm scripts without the noisy npm logs on non-zero exit codes
-alias npmrun='npm run --silent $@'
+alias npmrun='npm run --silent'
 
 # switch account for app engine
 function appEngineSwitchAccount() {
+    if [[ $# -eq 0 ]]; then
+        ls -1 ${HOME}/.appcfg_oauth2_tokens.*
+        return 0
+    fi
+
     if [[ ! -f "${HOME}/.appcfg_oauth2_tokens.$1" ]]; then
         echo "no such app engine account"
         return 1
@@ -31,7 +36,7 @@ function appEngineSwitchAccount() {
 
     cp "${HOME}/.appcfg_oauth2_tokens.$1" "${HOME}/.appcfg_oauth2_tokens"
 }
-alias aeuse='appEngineSwitchAccount $1'
+alias aeuse='appEngineSwitchAccount'
 
 # list external dependencies of a Go package
 # usage: goextdep P, goextdep ./..., etc.
