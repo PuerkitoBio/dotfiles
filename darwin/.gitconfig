@@ -2,6 +2,7 @@
 [user]
 	name = Martin Angers
 	email = martin.n.angers@gmail.com
+	signingKey = D318CA2B
 [alias]
 	co = checkout
 	st = status
@@ -23,3 +24,9 @@
 
 [difftool]
 	prompt = true
+[http "https://git.2zx1.flynnhub.com"]
+	sslCAInfo = /Users/m/.flynn/ca-certs/flynn-1470505450.pem
+[credential "https://git.2zx1.flynnhub.com"]
+	helper = /usr/local/bin/flynn git-credentials
+[commit]
+	gpgSign = true

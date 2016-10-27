@@ -1,5 +1,5 @@
 ### define environment variables
-PATH=$PATH:$HOME/bin:$HOME/src/go/bin:$HOME/src/go_appengine:$HOME/src/github.com/richo/babashka/bin
+PATH=$PATH:$HOME/bin:$HOME/src/go/bin:$HOME/src/github.com/richo/babashka/bin
 export GOPATH=$HOME
 export N_PREFIX=$HOME
 export CLICOLOR=1
@@ -49,3 +49,9 @@ PS1="\u@\h \[$txtpur\]\w\[$txtrst\] \[$bakwht\]\[$txtblk\]\$git_branch\$git_dirt
 ### https://github.com/direnv/direnv
 ### must be after history and prompt-manipulation config.
 eval "$(direnv hook bash)"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/m/src/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/m/src/google-cloud-sdk/completion.bash.inc'
