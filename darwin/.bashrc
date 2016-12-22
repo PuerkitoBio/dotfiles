@@ -5,6 +5,7 @@ export N_PREFIX=$HOME
 export CLICOLOR=1
 export EDITOR=vim
 export GITAWAREPROMPT=$GOPATH/src/github.com/jimeh/git-aware-prompt
+export TOOLCHAINS=com.apple.dt.toolchain.XcodeDefault
 CDPATH=.:$GOPATH/src/github.com:$GOPATH/src/bitbucket.org:$GOPATH/src/golang.org/x:$GOPATH/src/gitlab.com
 
 ### load aliases if any
