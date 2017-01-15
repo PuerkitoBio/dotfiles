@@ -43,6 +43,7 @@ echo
 for filename in {${srcdir},${commondir}}/.*; do
   # consider only regular files (-f)
 	if [[ -f ${filename} ]]; then
+    dir=$(dirname ${filename})
 		filename=$(basename ${filename})
 
     # if file is symbolic link (-h) or standard file (exists, -e)
@@ -52,7 +53,7 @@ for filename in {${srcdir},${commondir}}/.*; do
 		fi
 
     # create the symbolic link for the new file to put in place
-		ln -s ${srcdir}/${filename} ${targetdir}/${filename}
+		ln -s ${dir}/${filename} ${targetdir}/${filename}
 		if [[ $? -ne 0 ]]; then
 			echo "failed to symlink ${filename} to ${targetdir}"
 			exit 3
