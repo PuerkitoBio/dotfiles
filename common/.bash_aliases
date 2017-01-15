@@ -1,5 +1,10 @@
 # list entries in long format
-alias ll='ls -la --color'
+if [[ "${OS_SHORT_NAME}" == "darwin" ]]; then
+  # ls understands CLICOLOR, which is set
+  alias ll='ls -la'
+else
+  alias ll='ls -la --color'
+fi
 
 # auto-cd to last directory with just "-"
 # see http://askubuntu.com/questions/146031/bash-alias-alias-name-should-be-a-simple-dash-not-working
