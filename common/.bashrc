@@ -32,6 +32,11 @@ if [[ -e "${n_path}" && -x "${n_path}" ]]; then
   export N_PREFIX=${HOME}
 fi
 
+### add patches if any
+if [[ -f "${HOME}/.bashrc_patch" ]]; then
+  source "${HOME}/.bashrc_patch"
+fi
+
 ### load aliases if any
 if [[ -f "${HOME}/.bash_aliases" ]]; then
   source "${HOME}/.bash_aliases"
@@ -72,10 +77,5 @@ PS1="\u@\h \[$txtpur\]\w\[$txtrst\] \[$bakwht\]\[$txtblk\]\$git_branch\$git_dirt
 declare direnv_path=$(command -v direnv)
 if [[ -e "${direnv_path}" && -x "${direnv_path}" ]]; then
   eval "$(direnv hook bash)"
-fi
-
-### add patches if any
-if [[ -f "${HOME}/.bashrc_patch" ]]; then
-  source "${HOME}/.bashrc_patch"
 fi
 

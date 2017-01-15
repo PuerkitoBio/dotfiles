@@ -9,3 +9,7 @@ if [[ "${OS_SHORT_NAME}" == "linux" ]]; then
 
 fi
 
+### darwin-only patches
+if [[ "${OS_SHORT_NAME}" == "darwin" ]]; then
+  PATH=${PATH}:${HOME}/src/go/bin
+fi
