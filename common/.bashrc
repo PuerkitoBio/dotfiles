@@ -11,6 +11,17 @@ if [[ "${OS_SHORT_NAME}" == "linux" ]]; then
   export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi
 
+if [[ "${OS_SHORT_NAME}" == "darwin" ]]; then
+  export TOOLCHAINS=com.apple.dt.toolchain.XcodeDefault
+
+  ### enable bash-completion (installed from brew, AFTER installing and
+  ### upgrading to bash 4.x)
+  ### http://blog.pivotal.io/labs/labs/cdpath-bash-completion-in-osx
+  if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
+    source $(brew --prefix)/etc/bash_completion
+  fi
+fi
+
 declare go_path=$(command -v go)
 if [[ -e "${go_path}" && -x "${go_path}" ]]; then
   export GOPATH=${HOME}
