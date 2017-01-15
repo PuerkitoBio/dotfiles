@@ -1,0 +1,19 @@
+# use vi key bindings, see
+# http://blog.sanctum.geek.nz/vi-mode-in-bash/
+set editing-mode vi
+
+# show mode, see
+# http://stackoverflow.com/questions/1039713/different-bash-prompt-for-different-vi-editing-mode
+set show-mode-in-prompt on
+
+# smarter tab completion, see
+# http://mrzool.cc/writing/sensible-bash/
+set completion-ignore-case on
+set completion-map-case on
+set show-all-if-ambiguous on
+
+# arrow up
+"\e[A":history-search-backward
+# arrow down
+"\e[B":history-search-forward
+
