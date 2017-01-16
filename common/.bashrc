@@ -7,20 +7,13 @@ export EDITOR=vim
 export OS_SHORT_NAME=$(uname | tr '[:upper:]' '[:lower:]')
 CDPATH=.:${HOME}/src/github.com:${HOME}/src/bitbucket.org:${HOME}/src/golang.org/x:${HOME}/src/gitlab.com
 
-if [[ "${OS_SHORT_NAME}" == "linux" ]]; then
-  export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+### add patches if any
+if [[ -f "${HOME}/.bashrc_patch" ]]; then
+  source "${HOME}/.bashrc_patch"
 fi
 
-if [[ "${OS_SHORT_NAME}" == "darwin" ]]; then
-  export TOOLCHAINS=com.apple.dt.toolchain.XcodeDefault
-
-  ### enable bash-completion (installed from brew, AFTER installing and
-  ### upgrading to bash 4.x)
-  ### http://blog.pivotal.io/labs/labs/cdpath-bash-completion-in-osx
-  if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
-    source $(brew --prefix)/etc/bash_completion
-  fi
-fi
+### language/tools-specific setup, to be done before setting
+### up aliases which may rely on them.
 
 declare go_path=$(command -v go)
 if [[ -e "${go_path}" && -x "${go_path}" ]]; then
@@ -30,11 +23,6 @@ fi
 declare n_path=$(command -v n)
 if [[ -e "${n_path}" && -x "${n_path}" ]]; then
   export N_PREFIX=${HOME}
-fi
-
-### add patches if any
-if [[ -f "${HOME}/.bashrc_patch" ]]; then
-  source "${HOME}/.bashrc_patch"
 fi
 
 ### load aliases if any

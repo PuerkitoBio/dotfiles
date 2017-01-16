@@ -1,0 +1,15 @@
+### darwin-only patches
+
+### add manually-built Go binaries to the path
+PATH=${PATH}:${HOME}/src/go/bin
+
+### export the swift/XCode toolchain to use
+export TOOLCHAINS=com.apple.dt.toolchain.XcodeDefault
+
+### enable bash-completion (installed from brew, AFTER installing and
+### upgrading to bash 4.x)
+### http://blog.pivotal.io/labs/labs/cdpath-bash-completion-in-osx
+if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
+  source $(brew --prefix)/etc/bash_completion
+fi
+
