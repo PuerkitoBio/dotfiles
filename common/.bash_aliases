@@ -56,6 +56,7 @@ if [[ -e "${pacman_path}" && -x "${pacman_path}" ]]; then
 	alias pacman--remove='sudo pacman -R'
   alias pacman--remove-orphans='sudo pacman -R $(pacman -Qdtq)'
   alias pacman--list-installed='pacman -Qe'
+  alias pacman--list-installed-deps='pacman -Qd'
 	alias pacman--upgrade='sudo pacman -Syu'
 	alias pacman--outdated='pacman -Qu'
 	alias pacman--search='pacman -Ss'
