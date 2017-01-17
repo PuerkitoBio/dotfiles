@@ -2,10 +2,3 @@
 
 ### export SSH socket for systemd user service ssh-agent
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-
-### add manually built swift binaries to the PATH
-declare swift_manual_bin_dir="${HOME}/src/github.com/apple/swift-source/build/Ninja-RelWithDebInfoAssert/swift-linux-x86_64/bin"
-if [[ -d "${swift_manual_bin_dir}" ]]; then
-  PATH=$PATH:${swift_manual_bin_dir}
-fi
-

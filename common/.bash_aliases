@@ -52,7 +52,11 @@ declare pacman_path=$(command -v pacman)
 if [[ -e "${pacman_path}" && -x "${pacman_path}" ]]; then
 	alias pacman--install='sudo pacman -S'
 	alias pacman--install-local='sudo pacman -U'
-	alias pacman--remove='sudo pacman -Rs'
+  alias pacman--install-aur='makepkg -si'
+	alias pacman--remove='sudo pacman -R'
+  alias pacman--remove-orphans='sudo pacman -R $(pacman -Qdtq)'
+  alias pacman--list-installed='pacman -Qe'
+  alias pacman--list-installed-deps='pacman -Qd'
 	alias pacman--upgrade='sudo pacman -Syu'
 	alias pacman--outdated='pacman -Qu'
 	alias pacman--search='pacman -Ss'
@@ -62,6 +66,7 @@ if [[ -e "${pacman_path}" && -x "${pacman_path}" ]]; then
 	alias pacman--deps-tree='pactree'
 	alias pacman--depended-on-tree='pactree -r'
 	alias pacman--cleanup='sudo pacman -Sc'
+  alias pacman--file-owner='pacman -Qo'
 fi
 
 declare go_path=$(command -v go)
