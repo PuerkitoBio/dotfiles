@@ -40,6 +40,9 @@ HISTFILESIZE=100000
 HISTCONTROL="erasedups:ignoreboth"           # avoid duplicate entries
 HISTIGNORE="&:[ ]*:exit:ll:ls:bg:fg:history" # ignore some common commands
 HISTTIMEFORMAT='%F %T'                       # useful timestamp format (doesn't work?)
+### enable ctrl-s to search history forward (ctrl-r for reverse)
+### https://www.blockloop.io/mastering-bash-and-terminal
+stty -ixon
 
 ### automatic cd to directories, with spell correction
 shopt -s autocd
@@ -57,7 +60,7 @@ fi
 
 ### customize prompt
 PROMPT_DIRTRIM=3
-PS1="\u@\h \[$txtpur\]\w\[$txtrst\] \[$bakwht\]\[$txtblk\]\$git_branch\$git_dirty\[$txtrst\] \\$\[$(tput sgr0)\] "
+PS1=" [\j] \u@\h \[$txtpur\]\w\[$txtrst\] \[$bakwht\]\[$txtblk\]\$git_branch\$git_dirty\[$txtrst\] \\$\[$(tput sgr0)\] "
 
 ### enable direnv
 ### https://github.com/direnv/direnv
