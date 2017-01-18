@@ -6,6 +6,10 @@ else
   alias ll='ls -la --color'
 fi
 
+# find files and directories
+alias findf='find -type f -name'
+alias findd='find -type d -name'
+
 # auto-cd to last directory with just "-"
 # see http://askubuntu.com/questions/146031/bash-alias-alias-name-should-be-a-simple-dash-not-working
 alias -- -='cd -'
