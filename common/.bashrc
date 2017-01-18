@@ -5,7 +5,11 @@ fi
 export CLICOLOR=1
 export EDITOR=vim
 export OS_SHORT_NAME=$(uname | tr '[:upper:]' '[:lower:]')
-export MAKEFLAGS="-j$(nproc)"
+if [[ ${OS_SHORT_NAME} == "darwin" ]]; then
+  export MAKEFLAGS="-j$(sysctl -n hw.ncpu)"
+else
+  export MAKEFLAGS="-j$(nproc)"
+fi
 CDPATH=.:${HOME}/src/github.com:${HOME}/src/bitbucket.org:${HOME}/src/golang.org/x:${HOME}/src/gitlab.com
 
 ### add patches if any
