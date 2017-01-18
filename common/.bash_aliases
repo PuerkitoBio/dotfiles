@@ -7,8 +7,16 @@ else
 fi
 
 # find files and directories
-alias findf='find -type f -name'
-alias findd='find -type d -name'
+function __findFiles() {
+  local name=$1; shift;
+  find $* -type f -name ${name} 2>&1 | grep -v -e ": Permission denied$"
+}
+function __findDirs() {
+  local name=$1; shift;
+  find $* -type d -name ${name} 2>&1 | grep -v -e ": Permission denied$"
+}
+alias findf='__findFiles'
+alias findd='__findDirs'
 
 # auto-cd to last directory with just "-"
 # see http://askubuntu.com/questions/146031/bash-alias-alias-name-should-be-a-simple-dash-not-working
@@ -82,8 +90,8 @@ declare go_path=$(command -v go)
 if [[ -e "${go_path}" && -x "${go_path}" ]]; then
 	# list external dependencies of a Go package
 	# usage: goextdep P, goextdep ./..., etc.
-	function listGoExternalDeps() {
+	function __listGoExternalDeps() {
 	    go list -f "{{.Deps}}" $1 | tr "[" " " | tr "]" " " | xargs go list -f "{{if not .Standard}}{{.ImportPath}}{{end}}"  | sort
 	}
-	alias goextdep='listGoExternalDeps'
+	alias goextdep='__listGoExternalDeps'
 fi
