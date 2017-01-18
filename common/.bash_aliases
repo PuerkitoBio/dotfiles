@@ -9,11 +9,11 @@ fi
 # find files and directories
 function __findFiles() {
   local name=$1; shift;
-  find $* -type f -name ${name} 2>&1 | grep -v -e ": Permission denied$"
+  find ${*:-.} -type f -name ${name} 2>&1 | grep -v -e ": Permission denied$"
 }
 function __findDirs() {
   local name=$1; shift;
-  find $* -type d -name ${name} 2>&1 | grep -v -e ": Permission denied$"
+  find ${*:-.} -type d -name ${name} 2>&1 | grep -v -e ": Permission denied$"
 }
 alias findf='__findFiles'
 alias findd='__findDirs'
