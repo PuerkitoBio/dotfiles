@@ -39,4 +39,7 @@ setxkbmap -option caps:escape
 # bind volume keys (see ~/.xbindkeysrc)
 xbindkeys
 
+# composite manager
+compton -CGb
+
 exec i3
