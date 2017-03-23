@@ -1,0 +1,21 @@
+# update global options
+set global makecmd 'make -j8'
+set global grepcmd 'ag --column'
+set global ui_options ncurses_status_on_top=yes:ncurses_assistant=cat
+
+# global key mappings
+map global normal '#' :comment-line<ret>
+map global user g :grep
+map global user n :grep-next<ret>
+map global user p :grep-prev<ret>
+map global user y '<a-|>pbcopy<ret>; :echo -color Information "copied"<ret>'
+
+# global hooks
+hook global BufCreate .* %{editorconfig-load}
+hook global WinCreate .* %{
+  # add global highlighters
+  add-highlighter	number_lines -relative -hlcursor
+}
+
+colorscheme github
+
