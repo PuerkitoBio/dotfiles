@@ -95,3 +95,21 @@ if [[ -e "${go_path}" && -x "${go_path}" ]]; then
 	}
 	alias goextdep='__listGoExternalDeps'
 fi
+
+declare xcode_path=$(command -v xcodebuild)
+if [[ -e "${xcode_path}" && -x "${xcode_path}" ]]; then
+  # run an executable built by Xcode
+  function __runXcodeApp() {
+    local proj="$1/$1.xcodeproj"
+    local base_dir=$(xcodebuild -showBuildSettings -project ${proj}  -configuration Debug 2>/dev/null | grep CONFIGURATION_BUILD_DIR | xargs | cut -d " " -f 3)
+    local product=$(xcodebuild -showBuildSettings -project ${proj} -configuration Debug 2>/dev/null | grep FULL_PRODUCT_NAME | xargs | cut -d " " -f 3)
+    local full_path=${base_dir}/${product}
+    if [[ -e "${full_path}" && "${full_path: -4}" == ".app" ]]; then
+      open ${full_path}
+    else
+      echo $1 not found: expected to find ${proj}
+    fi
+  }
+  alias xcrunapp='__runXcodeApp'
+fi
+
