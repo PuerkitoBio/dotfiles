@@ -5,10 +5,10 @@ set global ui_options ncurses_status_on_top=yes:ncurses_assistant=cat
 
 # global key mappings
 map global normal '#' :comment-line<ret>
-map global user g :grep
-map global user n :grep-next<ret>
-map global user p :grep-prev<ret>
-map global user y '<a-|>pbcopy<ret>; :echo -color Information "copied"<ret>'
+map global -docstring 'search in files' user g :grep
+map global -docstring 'goto next match' user n :grep-next<ret>
+map global -docstring 'goto previous match' user p :grep-prev<ret>
+map global -docstring 'copy to system clipboard' user y '<a-|>pbcopy<ret>; :echo -color Information "copied"<ret>'
 
 # global hooks
 hook global BufCreate .* %{editorconfig-load}
@@ -24,7 +24,7 @@ def -hidden -params 0 list_directory %{
   # make buffer read-only
   set buffer readonly true
   # list the content of the current directory
-  exec <a-!>ls<ret>
+  exec "!ls -A<ret>"
   # move selection to top of file
   exec gk
 }
@@ -41,7 +41,7 @@ def -hidden -params 0 goto_file_or_directory %{
   }
 }
 
-# make the <ret> key goto the selected file
+# make the <ret> key goto the selected file, '-' cd to parent directory
 hook global BufCreate [*]dir[*] %{
   # map <ret> to open the selected file or cd to the selected directory
   map buffer normal <ret> '<space>xH:goto_file_or_directory<ret>'
@@ -49,7 +49,7 @@ hook global BufCreate [*]dir[*] %{
   map buffer normal -- -  ':cd ..<ret>; :list_directory<ret>'
 }
 # map ,e to list the directory contents
-map global user e :list_directory<ret>
+map global -docstring 'list files and directories' user e :list_directory<ret>
 
-colorscheme github
+colorscheme desertex
 
