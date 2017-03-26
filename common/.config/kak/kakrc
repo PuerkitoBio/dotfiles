@@ -1,4 +1,5 @@
 # update global options
+set global autoreload 'ask'
 set global makecmd 'make -j8'
 set global grepcmd 'ag --column'
 set global ui_options ncurses_status_on_top=yes:ncurses_assistant=cat
@@ -15,6 +16,11 @@ hook global BufCreate .* %{editorconfig-load}
 hook global WinCreate .* %{
   # add global highlighters
   add-highlighter	number_lines -relative -hlcursor
+}
+
+# Go-specific configuration
+hook global WinSetOption filetype=go %{
+	map window -docstring 'gofmt and auto-fix imports' user f ':go-format -use-goimports<ret>'
 }
 
 # implement directory listing
@@ -42,7 +48,7 @@ def -hidden -params 0 goto_file_or_directory %{
 }
 
 # make the <ret> key goto the selected file, '-' cd to parent directory
-hook global BufCreate [*]dir[*] %{
+hook global BufCreate \*dir\* %{
   # map <ret> to open the selected file or cd to the selected directory
   map buffer normal <ret> '<space>xH:goto_file_or_directory<ret>'
   # map - to cd to the parent directory and list its contents
