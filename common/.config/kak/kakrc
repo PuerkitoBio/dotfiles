@@ -6,6 +6,8 @@ set global ui_options ncurses_status_on_top=yes:ncurses_assistant=cat
 
 # global key mappings
 map global normal '#' :comment-line<ret>
+map global normal '0' 'gh'
+map global normal '$' 'gl'
 map global -docstring 'search in files' user g :grep
 map global -docstring 'goto next match' user n :grep-next<ret>
 map global -docstring 'goto previous match' user p :grep-prev<ret>
@@ -20,7 +22,9 @@ hook global WinCreate .* %{
 
 # Go-specific configuration
 hook global WinSetOption filetype=go %{
-	map window -docstring 'gofmt and auto-fix imports' user f ':go-format -use-goimports<ret>'
+  lint-enable
+  set window lintcmd 'golint'
+	map window -docstring 'goimports' user f ':go-format -use-goimports<ret>'
 }
 
 # implement directory listing
