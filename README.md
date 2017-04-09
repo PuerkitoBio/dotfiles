@@ -2,8 +2,12 @@
 
 ## Setup new mac
 
-1. Install iterm2, KeepassXC, Homebrew, Xcode
+1. Install Homebrew, Xcode
 2. From Homebrew, install:
+    - iterm2
+    - karabiner-elements
+    - keepassxc
+    - spectacle
     - bash 4 (http://blog.pivotal.io/labs/labs/cdpath-bash-completion-in-osx)
     - vim (+jq, +w3m, +editorconfig for plugins)
     - git
