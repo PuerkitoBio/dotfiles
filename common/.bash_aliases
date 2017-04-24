@@ -86,6 +86,12 @@ if [[ -e "${pacman_path}" && -x "${pacman_path}" ]]; then
   alias pacman--file-owner='pacman -Qo'
 fi
 
+declare thefuck_path=$(command -v thefuck)
+if [[ -e "${thefuck_path}" && -x "${thefuck_path}" ]]; then
+  # thefuck automatically generates its alias with this eval
+  eval $(thefuck --alias)
+fi
+
 declare go_path=$(command -v go)
 if [[ -e "${go_path}" && -x "${go_path}" ]]; then
 	# list external dependencies of a Go package
