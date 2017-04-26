@@ -10,5 +10,5 @@
 currentDir=$(pwd)
 currentFile=${kak_buffile}
 
-gometalinter --config=${HOME}/.config/gometalinter/config.json ${currentDir} | grep -e "^${currentFile}:"
+gometalinter --config=${HOME}/.config/gometalinter/config_quick.json ${currentDir} | grep -e "^${currentFile}:"
 

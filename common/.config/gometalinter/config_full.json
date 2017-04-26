@@ -1,0 +1,17 @@
+{
+  "DisableAll": true,
+  "Enable": [
+  	"aligncheck",
+  	"deadcode",
+  	"gas",
+    "golint",
+    "gosimple",
+    "gotype",
+    "staticcheck",
+    "structcheck",
+    "unused",
+    "vet"
+  ],
+  "Format": "{{.Path}}:{{.Line}}:{{.Col}}: {{.Severity}}: {{.Message}} ({{.Linter}})"
+}
+
