@@ -1,0 +1,9 @@
+{
+  "DisableAll": true,
+  "Enable": [
+    "vet",
+    "golint"
+  ],
+  "Format": "{{.Path}}:{{.Line}}:{{.Col}}: {{.Severity}}: {{.Message}} ({{.Linter}})"
+}
+
