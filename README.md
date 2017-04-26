@@ -3,13 +3,16 @@
 ## Setup new mac
 
 1. Install Homebrew, Xcode
-2. From Homebrew, install:
+2. From Homebrew (cask), install:
     - iterm2
     - karabiner-elements
     - keepassxc
     - spectacle
+    - firefox
+    - google-chrome
     - bash 4 (http://blog.pivotal.io/labs/labs/cdpath-bash-completion-in-osx)
     - vim (+jq, +w3m, +editorconfig for plugins)
+    - kakoune (see https://github.com/mawww/kakoune#installing, +jq, +gogetdoc, +gometalinter for plugins)
     - git
     - direnv
 3. Create ssh keys for github, bitbucket, etc. (https://blog.g3rt.nl/upgrade-your-ssh-keys.html)
@@ -20,7 +23,7 @@
 
 ## Firefox
 
-1. Download and install Firefox
+1. Install Firefox from Homebrew
 2. Customize to remove bloat
 3. Install add-on VimFx, Tab Center (Test Pilot)
 

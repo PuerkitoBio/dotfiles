@@ -46,8 +46,8 @@ for filename in {${srcdir},${commondir}}/.*; do
     dir=$(dirname ${filename})
 		filename=$(basename ${filename})
 
-    # if file is symbolic link (-h) or standard file (exists, -e)
-		if [[ -h ${targetdir}/${filename} || -e ${targetdir}/${filename} ]]; then
+    # if file is symbolic link (-L) or standard file (exists, -e)
+		if [[ -L ${targetdir}/${filename} || -e ${targetdir}/${filename} ]]; then
       # backup the existing file to the old directory
 			mv ${targetdir}/${filename} ${olddir}/${filename}
 		fi
@@ -60,6 +60,41 @@ for filename in {${srcdir},${commondir}}/.*; do
 		fi
 		echo "${filename}"
 	fi
+done
+
+# backup existing config directories, and link new directories in ${targetdir}/.config
+
+if [[ ! -d ${targetdir}/.config ]]; then
+  mkdir ${targetdir}/.config
+fi
+
+if [[ ! -d ${olddir}/.config ]]; then
+  mkdir ${olddir}/.config
+fi
+
+for dir in ${commondir}/.config/*; do
+  # consider only directories (-d)
+	if [[ -d ${dir} ]]; then
+    base=$(basename ${dir})
+
+    # ignore . and ..
+    if [[ ! ${base} =~ ^\.+$ ]]; then
+
+      # if directory exists, back it up (symlink or not)
+      if [[ -d ${targetdir}/.config/${base} ]]; then
+        # backup the existing directory to the old directory
+        mv ${targetdir}/.config/${base} ${olddir}/.config/
+      fi
+
+      # create the symbolic link for the directory to put in place
+      ln -s ${dir} ${targetdir}/.config/
+      if [[ $? -ne 0 ]]; then
+        echo "failed to symlink ${dir} to ${targetdir}/.config/"
+        exit 3
+      fi
+      echo "${base}"
+    fi
+  fi
 done
 
 echo
