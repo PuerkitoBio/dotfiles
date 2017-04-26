@@ -24,3 +24,11 @@
 2. Customize to remove bloat
 3. Install add-on VimFx, Tab Center (Test Pilot)
 
+## Kakoune
+
+Create symbolic link to system autoload directory in local autoload directory after install, e.g.:
+
+```
+$ ln -s /usr/local/share/kak/autoload/ ~/.config/kak/autoload/
+```
+
