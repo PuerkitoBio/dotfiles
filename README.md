@@ -12,7 +12,7 @@
     - google-chrome
     - bash 4 (http://blog.pivotal.io/labs/labs/cdpath-bash-completion-in-osx)
     - vim (+jq, +w3m, +editorconfig for plugins)
-    - kakoune (see https://github.com/mawww/kakoune#installing, +jq, +gogetdoc, +gometalinter for plugins)
+    - kakoune (see https://github.com/mawww/kakoune#installing, +jq, +gogetdoc, +gometalinter, +ranger, +highlight for plugins)
     - git
     - direnv
 3. Create ssh keys for github, bitbucket, etc. (https://blog.g3rt.nl/upgrade-your-ssh-keys.html)
@@ -33,5 +33,14 @@ Create symbolic link to system autoload directory in local autoload directory af
 
 ```
 $ ln -s /usr/local/share/kak/autoload/ ~/.config/kak/autoload/
+```
+
+Run the following to install ranger config files locally:
+
+```
+$ ranger --copy-config=rc
+# then remove most of it, keep just what's needed, it loads the global config too
+
+$ ranger --copy-config=scope
 ```
 
