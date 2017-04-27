@@ -9,6 +9,9 @@ hook global WinSetOption filetype=go %{
 	# use the full list of linters (including gotype) for the make command
 	set window makecmd 'gometalinter --config=${HOME}/.config/gometalinter/config_full.json'
 
+	# use gometalinter to run tests
+	set window testcmd 'gometalinter --config=${HOME}/.config/gometalinter/config_test.json'
+
   # enable go auto-completion
   go-enable-autocomplete
 

@@ -1,0 +1,8 @@
+{
+  "DisableAll": true,
+  "Enable": [
+    "test"
+  ],
+  "Format": "{{.Path}}:{{.Line}}:{{.Col}}: {{.Severity}}: {{.Message}} ({{.Linter}})"
+}
+
