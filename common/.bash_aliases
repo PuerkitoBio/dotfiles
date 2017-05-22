@@ -124,7 +124,11 @@ if [[ -e "${xcode_path}" && -x "${xcode_path}" ]]; then
 
     # exists and is executable
     if [[ -e "${full_path}" && -x "${full_path}" ]]; then
-      open ${full_path}
+      if [[ "${full_path: -4}" == ".app" ]]; then
+        open ${full_path}
+      else
+        ${full_path}
+      fi
     else
       echo $1 not found: expected to find app build at ${full_path}
     fi
