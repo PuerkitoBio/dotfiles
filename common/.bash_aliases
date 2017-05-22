@@ -107,13 +107,25 @@ if [[ -e "${xcode_path}" && -x "${xcode_path}" ]]; then
   # run an executable built by Xcode
   function __runXcodeApp() {
     local proj="$1/$1.xcodeproj"
+    if [[ ! -d ${proj} ]]; then
+      proj="$1.xcodeproj"
+      if [[ ! -d ${proj} ]]; then
+        echo $1 not found: expected to find ${proj}
+        return
+      fi
+    fi
+    # echo "proj=${proj}"
+
     local base_dir=$(xcodebuild -showBuildSettings -project ${proj}  -configuration Debug 2>/dev/null | grep CONFIGURATION_BUILD_DIR | xargs | cut -d " " -f 3)
     local product=$(xcodebuild -showBuildSettings -project ${proj} -configuration Debug 2>/dev/null | grep FULL_PRODUCT_NAME | xargs | cut -d " " -f 3)
     local full_path=${base_dir}/${product}
+
+    # echo "base_dir=${base_dir}, product=${product}, full_path=${full_path}"
+
     if [[ -e "${full_path}" && "${full_path: -4}" == ".app" ]]; then
       open ${full_path}
     else
-      echo $1 not found: expected to find ${proj}
+      echo $1 not found: expected to find app build at ${full_path}
     fi
   }
   alias xcrunapp='__runXcodeApp'
