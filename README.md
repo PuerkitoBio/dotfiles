@@ -5,7 +5,7 @@
 1. Install Homebrew, Xcode
 2. From Homebrew (cask), install:
     - iterm2
-    - karabiner-elements
+    - ~~karabiner-elements~~ (not needed since Sierra, see System Preferences -> Keyboard -> Modifier Keys)
     - keepassxc
     - spectacle
     - firefox
