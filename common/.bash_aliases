@@ -106,6 +106,7 @@ declare xcode_path=$(command -v xcodebuild)
 if [[ -e "${xcode_path}" && -x "${xcode_path}" ]]; then
   # run an executable built by Xcode
   function __runXcodeApp() {
+    local conf=${2:-Debug}
     local proj="$1/$1.xcodeproj"
     if [[ ! -d ${proj} ]]; then
       proj="$1.xcodeproj"
@@ -116,8 +117,8 @@ if [[ -e "${xcode_path}" && -x "${xcode_path}" ]]; then
     fi
     # echo "proj=${proj}"
 
-    local base_dir=$(xcodebuild -showBuildSettings -project ${proj}  -configuration Debug 2>/dev/null | grep CONFIGURATION_BUILD_DIR | xargs | cut -d " " -f 3)
-    local product=$(xcodebuild -showBuildSettings -project ${proj} -configuration Debug 2>/dev/null | grep FULL_PRODUCT_NAME | xargs | cut -d " " -f 3)
+    local base_dir=$(xcodebuild -showBuildSettings -project ${proj}  -configuration ${conf} 2>/dev/null | grep CONFIGURATION_BUILD_DIR | xargs | cut -d " " -f 3)
+    local product=$(xcodebuild -showBuildSettings -project ${proj} -configuration ${conf} 2>/dev/null | grep FULL_PRODUCT_NAME | xargs | cut -d " " -f 3)
     local full_path=${base_dir}/${product}
 
     # echo "base_dir=${base_dir}, product=${product}, full_path=${full_path}"
