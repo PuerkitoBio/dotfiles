@@ -152,6 +152,7 @@ if [[ ${SRCPATH} ]]; then
       mkdir -p "${SRCPATH}/${host}/${author}/${repo}"
       cd "${SRCPATH}/${host}/${author}"
       git clone "git@${host}:${author}/${repo}.git"
+      cd "${SRCPATH}/${host}/${author}/${repo}"
     }
     alias gitclone='__cloneRepo'
   fi
