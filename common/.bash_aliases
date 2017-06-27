@@ -141,9 +141,9 @@ if [[ ${SRCPATH} ]]; then
   declare git_path=$(command -v git)
   if [[ -e "${git_path}" && -x "${git_path}" ]]; then
     function __cloneRepo() {
-      local host=$(echo "$1" | cut -d/ -f 1)
-      local author=$(echo "$1" | cut -d/ -f 2)
-      local repo=$(echo "$1" | cut -d/ -f 3)
+      local host=$(echo "$1" | cut -d/ -s -f 1)
+      local author=$(echo "$1" | cut -d/ -s -f 2)
+      local repo=$(echo "$1" | cut -d/ -s -f 3)
       if [[ ! ${host} || ! ${author} || ! ${repo} ]]; then
         echo "invalid repository: want host/author/repo"
         return
