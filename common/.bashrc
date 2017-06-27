@@ -10,7 +10,9 @@ if [[ ${OS_SHORT_NAME} == "darwin" ]]; then
 else
   export MAKEFLAGS="-j$(nproc)"
 fi
-CDPATH=.:${HOME}/src/github.com:${HOME}/src/bitbucket.org:${HOME}/src/golang.org/x:${HOME}/src/gitlab.com
+export SRCPATH=${HOME}/src
+
+CDPATH=.:${SRCPATH}/github.com:${SRCPATH}/bitbucket.org:${SRCPATH}/golang.org/x:${SRCPATH}/gitlab.com
 
 ### add patches if any
 if [[ -f "${HOME}/.bashrc_patch" ]]; then

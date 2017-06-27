@@ -137,3 +137,23 @@ if [[ -e "${xcode_path}" && -x "${xcode_path}" ]]; then
   alias xcrunapp='__runXcodeApp'
 fi
 
+if [[ ${SRCPATH} ]]; then
+  declare git_path=$(command -v git)
+  if [[ -e "${git_path}" && -x "${git_path}" ]]; then
+    function __cloneRepo() {
+      local host=$(echo "$1" | cut -d/ -f 1)
+      local author=$(echo "$1" | cut -d/ -f 2)
+      local repo=$(echo "$1" | cut -d/ -f 3)
+      if [[ ! ${host} || ! ${author} || ! ${repo} ]]; then
+        echo "invalid repository: want host/author/repo"
+        return
+      fi
+
+      mkdir -p "${SRCPATH}/${host}/${author}/${repo}"
+      cd "${SRCPATH}/${host}/${author}"
+      git clone "git@${host}:${author}/${repo}.git"
+    }
+    alias gitclone='__cloneRepo'
+  fi
+fi
+
