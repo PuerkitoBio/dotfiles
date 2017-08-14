@@ -102,6 +102,11 @@ if [[ -e "${go_path}" && -x "${go_path}" ]]; then
 	alias goextdep='__listGoExternalDeps'
 fi
 
+declare ag_path=$(command -v ag)
+if [[ -e "${ag_path}" && -x "${ag_path}" ]]; then
+  alias ag--novend='ag --ignore-dir vendor/'
+fi
+
 declare xcode_path=$(command -v xcodebuild)
 if [[ -e "${xcode_path}" && -x "${xcode_path}" ]]; then
   # run an executable built by Xcode
