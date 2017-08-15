@@ -1,6 +1,13 @@
 # dotfiles
 
-## Setup new mac
+## Setup For Ubuntu
+
+1. Install `git`, `xsel`, `vim` (`sudo apt-get install git xsel vim`)
+2. Install keepassxc (`sudo snap install keepassxc`)
+
+## Setup For Arch
+
+## Setup For Mac
 
 1. Install Homebrew, Xcode
 2. From Homebrew (cask), install:
@@ -21,26 +28,8 @@
 6. Clone powerline/fonts, install, setup in iTerm2 (note the non-ascii font tweak mentioned in the readme)
 7. Clone jimeh/git-aware-prompt
 
-## Firefox
+## Configure Firefox
 
-1. Install Firefox from Homebrew
-2. Customize to remove bloat
-3. Install add-on VimFx, Tab Center (Test Pilot)
-
-## Kakoune
-
-Create symbolic link to system autoload directory in local autoload directory after install, e.g.:
-
-```
-$ ln -s /usr/local/share/kak/autoload/ ~/.config/kak/autoload/
-```
-
-Run the following to install ranger config files locally:
-
-```
-$ ranger --copy-config=rc
-# then remove most of it, keep just what's needed, it loads the global config too
-
-$ ranger --copy-config=scope
-```
-
+1. Customize to remove bloat
+2. Install add-on VimFx
+3. Install add-on Instapaper
