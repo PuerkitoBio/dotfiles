@@ -2,8 +2,14 @@
 
 ## Setup For Ubuntu
 
-1. Install `git`, `xsel`, `vim` (`sudo apt-get install git xsel vim`)
-2. Install keepassxc (`sudo snap install keepassxc`)
+1. Install `git`, `xsel`, `vim`, `direnv`, `ag` (`sudo apt-get install git xsel vim direnv silversearcher-ag`)
+2. Install `keepassxc` (`sudo snap install keepassxc`)
+3. Install `go` (`sudo snap install --classic go`)
+4. If installing on Mac, fix the missing backtick/tilde key (https://askubuntu.com/a/553174)
+5. Create ssh keys for github, bitbucket, etc. (https://blog.g3rt.nl/upgrade-your-ssh-keys.html)
+6. Clone mna/dotfiles, install
+7. Clone mna/myvim into ~/.vim/
+8. Clone jimeh/git-aware-prompt
 
 ## Setup For Arch
 

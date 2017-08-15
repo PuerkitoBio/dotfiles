@@ -6,3 +6,7 @@ setxkbmap -option caps:escape
 # export the ssh-agent pid
 eval "$(ssh-agent)"
 
+### enable bash-completion
+if [[ -f /etc/bash_completion ]]; then
+  source /etc/bash_completion
+fi
