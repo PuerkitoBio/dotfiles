@@ -5,7 +5,7 @@
 1. Install `git`, `xsel`, `vim`, `direnv`, `ag` (`sudo apt-get install git xsel vim direnv silversearcher-ag`)
 2. Install `keepassxc` (`sudo snap install keepassxc`)
 3. Install `go` (`sudo snap install --classic go`)
-4. If installing on Mac, fix the missing backtick/tilde key (https://askubuntu.com/a/553174)
+4. If installing on Mac, fix the missing backtick/tilde key (https://askubuntu.com/a/553174) and remap the cmd key to ctrl (https://radu.cotescu.com/remapping-keys-in-ubuntu-14.04/)
 5. Create directories in ${HOME} (`mkdir {src,pkg,bin}`)
 6. Create ssh keys for github, bitbucket, etc. (https://blog.g3rt.nl/upgrade-your-ssh-keys.html)
 7. Clone mna/dotfiles, install
