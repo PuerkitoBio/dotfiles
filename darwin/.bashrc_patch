@@ -6,12 +6,6 @@ PATH=${PATH}:${HOME}/src/go/bin
 ### export the swift/XCode toolchain to use
 export TOOLCHAINS=com.apple.dt.toolchain.XcodeDefault
 
-### override EDITOR to use kak on mac
-declare kak_path=$(command -v kak)
-if [[ -e "${kak_path}" && -x "${kak_path}" ]]; then
-  export EDITOR=kak
-fi
-
 ### enable bash-completion (installed from brew, AFTER installing and
 ### upgrading to bash 4.x)
 ### http://blog.pivotal.io/labs/labs/cdpath-bash-completion-in-osx

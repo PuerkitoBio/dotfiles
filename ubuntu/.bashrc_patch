@@ -1,0 +1,8 @@
+### Ubuntu-only patches
+
+# map caps lock to escape
+setxkbmap -option caps:escape
+
+# export the ssh-agent pid
+eval "$(ssh-agent)"
+
