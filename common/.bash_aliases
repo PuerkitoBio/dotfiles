@@ -86,6 +86,29 @@ if [[ -e "${pacman_path}" && -x "${pacman_path}" ]]; then
   alias pacman--file-owner='pacman -Qo'
 fi
 
+declare apt_path=$(command -v apt)
+if [[ -e "${apt_path}" && -x "${apt_path}" ]]; then
+  alias apt--install='sudo apt install'
+  alias apt--remove='sudo apt remove'
+  alias apt--list-installed='apt list'
+  alias apt--upgrade='sudo apt update && sudo apt upgrade'
+  alias apt--outdated='sudo apt update && apt list --upgradable'
+  alias apt--search='apt search'
+  alias apt--info='apt show'
+  alias apt--cleanup='sudo apt autoremove'
+fi
+
+declare snap_path=$(command -v snap)
+if [[ -e "${snap_path}" && -x "${snap_path}" ]]; then
+  alias snap--install='sudo snap install'
+  alias snap--remove='sudo snap remove'
+  alias snap--list-installed='snap list'
+  alias snap--upgrade='sudo snap refresh'
+  alias snap--outdated='snap refresh --list'
+  alias snap--search='snap find'
+  alias snap--info='snap info'
+fi
+
 declare thefuck_path=$(command -v thefuck)
 if [[ -e "${thefuck_path}" && -x "${thefuck_path}" ]]; then
   # thefuck automatically generates its alias with this eval

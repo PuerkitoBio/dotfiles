@@ -12,6 +12,7 @@
 8. Clone mna/myvim into ~/.vim/
 9. Clone powerline/fonts, install, configure profile in Terminal (e.g. use Source Code Pro font)
 10. Clone jimeh/git-aware-prompt
+11. Install vscode (https://code.visualstudio.com/docs/setup/linux)
 
 ## Setup For Arch
 
