@@ -10,9 +10,3 @@ eval "$(ssh-agent)"
 if [[ -f /etc/bash_completion ]]; then
   source /etc/bash_completion
 fi
-
-### configure swiftenv to manage swift toolchains
-### https://swiftenv.fuller.li/en/latest/installation.html
-export SWIFTENV_ROOT="$HOME/.swiftenv"
-PATH=${PATH}:${SWIFTENV_ROOT}/bin
-eval "$(swiftenv init -)"
