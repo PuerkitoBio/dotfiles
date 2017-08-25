@@ -40,6 +40,18 @@ if [[ -f "${HOME}/.bash_aliases" ]]; then
   source "${HOME}/.bash_aliases"
 fi
 
+### automatically add ssh keys to ssh agent
+if [[ -d "${HOME}/.ssh" ]]; then
+  for file in ${HOME}/.ssh/*.pub; do
+    local private=${file%.pub}
+    if [[ ${OS_SHORT_NAME} == "darwin" ]]; then
+      ssh-add -K "${private}"
+    else
+      ssh-add "${private}"
+    fi
+  done
+fi
+
 ### configure history
 ### see http://mrzool.cc/writing/sensible-bash/
 shopt -s histappend                          # append to the history file, don't overwrite it
