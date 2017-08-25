@@ -1,7 +1,9 @@
-### define environment variables
+### add ~/bin to PATH
 if [[ :${PATH}: != *:"${HOME}/bin":* ]] ; then
   PATH=${PATH}:${HOME}/bin
 fi
+
+### define environment variables
 export CLICOLOR=1
 export EDITOR=vim
 export OS_SHORT_NAME=$(uname | tr '[:upper:]' '[:lower:]')
@@ -12,9 +14,10 @@ else
 fi
 export SRCPATH=${HOME}/src
 
+### quickly cd to common repo paths
 CDPATH=.:${SRCPATH}/github.com:${SRCPATH}/bitbucket.org:${SRCPATH}/golang.org/x:${SRCPATH}/gitlab.com
 
-### add patches if any
+### add OS-specific patches if any
 if [[ -f "${HOME}/.bashrc_patch" ]]; then
   source "${HOME}/.bashrc_patch"
 fi
@@ -47,6 +50,7 @@ HISTFILESIZE=100000
 HISTCONTROL="erasedups:ignoreboth"           # avoid duplicate entries
 HISTIGNORE="&:[ ]*:exit:ll:ls:bg:fg:history" # ignore some common commands
 HISTTIMEFORMAT='%F %T'                       # useful timestamp format (doesn't work?)
+
 ### enable ctrl-s to search history forward (ctrl-r for reverse)
 ### https://www.blockloop.io/mastering-bash-and-terminal
 stty -ixon
