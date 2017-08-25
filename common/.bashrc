@@ -43,7 +43,7 @@ fi
 ### automatically add ssh keys to ssh agent
 if [[ -d "${HOME}/.ssh" ]]; then
   for file in ${HOME}/.ssh/*.pub; do
-    local private=${file%.pub}
+    private=${file%.pub}
     if [[ ${OS_SHORT_NAME} == "darwin" ]]; then
       ssh-add -K "${private}"
     else
