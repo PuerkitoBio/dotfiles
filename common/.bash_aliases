@@ -17,6 +17,7 @@ function __findDirs() {
 }
 alias findf='__findFiles'
 alias findd='__findDirs'
+alias findbig='du -kh | egrep "^\d+(\.\d+)?G\s+\./[^/]+$"'
 
 # auto-cd to last directory with just "-"
 # see http://askubuntu.com/questions/146031/bash-alias-alias-name-should-be-a-simple-dash-not-working
