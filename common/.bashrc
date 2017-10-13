@@ -81,3 +81,10 @@ if [[ -e "${direnv_path}" && -x "${direnv_path}" ]]; then
   eval "$(direnv hook bash)"
 fi
 
+### load any out-of-repo extra source files that may be needed
+for file in .bash_extra_*; do
+  if [[ -f ${file} ]]; then
+    source "${file}"
+  fi
+done
+

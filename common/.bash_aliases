@@ -27,7 +27,7 @@ alias -- -='cd -'
 
 declare elasticsearch_path=$(command -v elasticsearch)
 if [[ -e "${elasticsearch_path}" && -x "${elasticsearch_path}" ]]; then
-	alias es='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
+	alias es='elasticsearch'
 	alias kes='kill -s TERM $(pgrep -f elasticsearch)'
 fi
 
