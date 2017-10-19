@@ -10,9 +10,8 @@
 6. Create ssh keys for github, bitbucket, etc. (https://blog.g3rt.nl/upgrade-your-ssh-keys.html)
 7. Clone mna/dotfiles, install
 8. Clone mna/myvim into ~/.vim/
-9. Clone powerline/fonts, install, configure profile in Terminal (e.g. use Source Code Pro font)
-10. Clone jimeh/git-aware-prompt
-11. Install vscode (https://code.visualstudio.com/docs/setup/linux)
+9. Clone jimeh/git-aware-prompt
+10. Install vscode (https://code.visualstudio.com/docs/setup/linux)
 
 ## Setup For Arch
 
@@ -27,7 +26,7 @@
     - firefox
     - google-chrome
     - bash 4 (http://blog.pivotal.io/labs/labs/cdpath-bash-completion-in-osx)
-    - vim (+jq, +w3m, +editorconfig for plugins)
+    - vim (+jq, +editorconfig, +fzf, +ag for plugins)
     - kakoune (see https://github.com/mawww/kakoune#installing, +jq, +gogetdoc, +gometalinter, +ranger, +highlight for plugins)
     - git
     - direnv
@@ -35,8 +34,7 @@
 4. Create directories in ${HOME} (`mkdir {src,pkg,bin}`)
 5. Clone mna/dotfiles, install
 6. Clone mna/myvim into ~/.vim/
-7. Clone powerline/fonts, install, setup in iTerm2 (note the non-ascii font tweak mentioned in the readme)
-8. Clone jimeh/git-aware-prompt
+7. Clone jimeh/git-aware-prompt
 
 ## Configure Firefox
 
