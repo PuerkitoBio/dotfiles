@@ -4,6 +4,7 @@ if [[ :${PATH}: != *:"${HOME}/bin":* ]] ; then
 fi
 
 ### define environment variables
+export XDG_CONFIG_HOME=${HOME}/.config
 export CLICOLOR=1
 export EDITOR=vim
 export OS_SHORT_NAME=$(uname | tr '[:upper:]' '[:lower:]')
