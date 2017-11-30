@@ -1,0 +1,40 @@
+### This is the global gitignore file.
+
+### Mac-specific
+
+.DS_Store
+
+### direnv files (https://direnv.net/)
+
+.envrc
+
+### Vim-specific (https://github.com/github/gitignore/blob/master/Global/Vim.gitignore)
+
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+
+# Auto-generated tag files
+tags
+
+### Visual Studio Code-specific (https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore)
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### Redis-specific
+
+# only if using the default name
+dump.rdb

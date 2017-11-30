@@ -27,3 +27,5 @@
 	insteadOf = https://bitbucket.org/
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[core]
+	excludesfile = /Users/m/.gitignore
