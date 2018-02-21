@@ -1,0 +1,4 @@
+### linux-only patches
+
+### export SSH socket for systemd user service ssh-agent
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
